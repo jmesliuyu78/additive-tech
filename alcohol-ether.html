@@ -47,6 +47,19 @@
   .page-banner p { font-size: 15px; color: var(--gray-600); max-width: 560px; margin: 0 auto; }
 
   .section { padding: 64px 0; }
+  .intro-card {
+    background: linear-gradient(135deg, #e8f5f0, #d4f0e6);
+    border: 1px solid #b8e6d3; border-radius: var(--radius);
+    padding: 40px; margin-bottom: 36px;
+  }
+  .intro-card h2 { font-size: 22px; font-weight: 700; color: var(--navy-900); margin-bottom: 16px; }
+  .intro-desc { font-size: 15px; color: var(--gray-800); line-height: 1.9; margin-bottom: 12px; text-indent: 2em; }
+  .intro-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .intro-tags span {
+    background: var(--white); color: var(--teal-600); font-size: 13px;
+    padding: 6px 16px; border-radius: 20px; border: 1px solid var(--teal-500);
+  }
+
   .product-card {
     background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
     padding: 40px; margin-bottom: 28px;
@@ -102,6 +115,21 @@
 
 <section class="section">
   <div class="container">
+
+    <!-- 醇醚燃料配方介绍 -->
+    <div class="intro-card">
+      <h2>醇醚燃料配方定制服务</h2>
+      <p class="intro-desc">醇醚燃料是一大类以甲醇、乙醇、二甲醚及其他低碳含氧化合物为基础组分调合而成的清洁替代燃料，涵盖甲醇汽油（M5-M100）、乙醇汽油（E10-E85）、醇醚复合燃料及多元混合燃料等多种类型。不同基础原料的理化性质差异显著——甲醇的高汽化潜热与低热值、乙醇的吸湿性与材料相容性问题、二甲醚的高蒸气压与润滑性不足——各应用场景对配方的要求千差万别。</p>
+      <p class="intro-desc">我们在醇醚燃料配方领域拥有20余年的技术积累，熟悉从基础组分筛选、互溶体系设计、添加剂复配到台架验证的全链条开发流程。无论是面向出租车车队的M100甲醇燃料方案，还是针对北方严寒地区的E10低温乙醇汽油配方，或是特种工况（高原、船用、工业锅炉）的醇醚燃料需求，我们均可提供经过充分验证的成熟配方与一体化添加剂包。</p>
+      <div class="intro-tags">
+        <span>M5-M100甲醇汽油全系列配方</span>
+        <span>E10-E85乙醇汽油配方</span>
+        <span>醇醚复合燃料</span>
+        <span>二甲醚燃料体系</span>
+        <span>寒区/高原特种配方</span>
+        <span>车用/船用/工业锅炉全覆盖</span>
+      </div>
+    </div>
 
     <!-- 醇醚助溶剂 -->
     <div class="product-card">
