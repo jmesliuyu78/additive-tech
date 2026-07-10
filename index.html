@@ -3,32 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>刘宇的化工技术站</title>
+<title>刘宇的化工技术站 — 燃油添加剂配方研发专家</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
+    --navy-950: #0a1626;
     --navy-900: #0f1f38;
     --navy-800: #1a365d;
+    --navy-700: #234b75;
     --navy-600: #2c5282;
     --navy-400: #5a8fc4;
+    --navy-200: #b3d4ef;
     --teal-700: #0f6e56;
+    --teal-600: #148f6d;
     --teal-500: #1d9e75;
+    --teal-400: #2db88a;
     --teal-100: #d4f0e6;
-    --gray-100: #f7f8fa;
-    --gray-200: #e8ecf1;
-    --gray-400: #8896a6;
-    --gray-600: #5a6575;
-    --gray-800: #2d3748;
-    --white: #ffffff;
+    --amber-600: #b87918;
     --amber-500: #d69e2e;
+    --amber-400: #e6b74a;
     --amber-100: #fef3dd;
+    --coral-700: #a04535;
     --coral-600: #c0563f;
+    --coral-500: #d4705a;
     --coral-100: #fbeae3;
-    --blue-100: #e3edf9;
-    --radius: 12px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-    --shadow-lg: 0 4px 16px rgba(0,0,0,0.1);
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --white: #ffffff;
+    --radius-sm: 8px;
+    --radius: 14px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   body {
@@ -37,278 +55,622 @@
     background: var(--white);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
 
-  /* Nav */
+  /* ====== Navigation ====== */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--gray-200);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: background var(--transition);
   }
+  nav.scrolled { background: rgba(255,255,255,0.95); box-shadow: var(--shadow); }
   nav .container {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 60px;
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
   }
-  .nav-brand { font-size: 18px; font-weight: 600; color: var(--navy-900); letter-spacing: -0.3px; }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-brand {
+    font-size: 19px; font-weight: 700; color: var(--navy-900);
+    letter-spacing: -0.3px; display: flex; align-items: center; gap: 8px;
+  }
+  .nav-brand .logo-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal-500), var(--navy-600));
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
   .nav-links a {
-    text-decoration: none; color: var(--gray-600); font-size: 14px;
-    transition: color 0.2s;
+    text-decoration: none; color: var(--gray-600); font-size: 15px; font-weight: 500;
+    transition: color var(--transition); position: relative;
   }
-  .nav-links a:hover { color: var(--navy-600); }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
+    background: var(--teal-500); transform: scaleX(0); transition: transform var(--transition);
+    border-radius: 2px;
+  }
+  .nav-links a:hover { color: var(--navy-700); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: var(--navy-800); color: var(--white) !important;
+    padding: 8px 20px; border-radius: 20px; font-size: 14px !important;
+    transition: background var(--transition) !important;
+  }
+  .nav-cta:hover { background: var(--navy-700) !important; }
+  .nav-cta::after { display: none !important; }
 
-  /* Hero */
+  /* ====== Hero ====== */
   .hero {
-    padding: 140px 0 80px;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 50%, #f0f4f8 100%);
-    text-align: center;
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: var(--white);
+    padding: 180px 0 120px;
+    overflow: hidden;
   }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: url('images/hero-bg.png') center/cover no-repeat;
+    filter: brightness(0.35) saturate(0.8);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(10,22,38,0.7) 0%, rgba(15,31,56,0.85) 50%, rgba(15,31,56,0.95) 100%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 780px; }
   .hero-badge {
-    display: inline-block; background: var(--navy-800); color: var(--white);
-    padding: 6px 18px; border-radius: 20px; font-size: 13px; letter-spacing: 0.5px;
-    margin-bottom: 24px;
+    display: inline-block;
+    padding: 6px 20px; border-radius: 24px;
+    font-size: 14px; font-weight: 600; letter-spacing: 1.5px;
+    background: rgba(29,158,117,0.2); border: 1px solid rgba(29,158,117,0.4);
+    color: var(--teal-400); margin-bottom: 28px;
+    backdrop-filter: blur(10px);
   }
-  .hero h1 { font-size: 40px; font-weight: 700; color: var(--navy-900); margin-bottom: 12px; letter-spacing: -0.5px; }
-  .hero h1 span { color: var(--teal-700); }
-  .hero .subtitle { font-size: 17px; color: var(--gray-600); max-width: 560px; margin: 0 auto 32px; }
-  .hero-tags { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .hero-tags span {
-    background: var(--white); color: var(--navy-600); padding: 6px 16px;
-    border-radius: 6px; font-size: 13px; border: 1px solid var(--gray-200);
+  .hero h1 {
+    font-size: 56px; font-weight: 800; letter-spacing: -1.5px;
+    line-height: 1.2; margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .hero h1 .accent { color: var(--teal-400); }
+  .hero .subtitle {
+    font-size: 18px; color: rgba(255,255,255,0.75);
+    max-width: 560px; margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+  .hero-stats {
+    display: flex; gap: 48px; justify-content: center;
+    margin-bottom: 44px; flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-size: 36px; font-weight: 800; color: var(--white);
+    display: block; letter-spacing: -1px;
+  }
+  .hero-stat .label {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    margin-top: 4px; letter-spacing: 0.5px;
+  }
+  .hero-stat .num.accent-teal { color: var(--teal-400); }
+  .hero-stat .num.accent-amber { color: var(--amber-400); }
+  .hero-stat .num.accent-coral { color: var(--coral-500); }
+  .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: 28px; font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: all var(--transition); cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--teal-600); color: var(--white);
+    box-shadow: 0 4px 16px rgba(29,158,117,0.35);
+  }
+  .btn-primary:hover { background: var(--teal-500); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,158,117,0.45); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+
+  /* Scroll arrow */
+  .scroll-hint {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2;
+    animation: bounce 2s infinite;
+  }
+  .scroll-hint span { color: rgba(255,255,255,0.5); font-size: 28px; }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
   }
 
-  /* Section titles */
-  .section { padding: 80px 0; }
-  .section-header { text-align: center; margin-bottom: 56px; }
-  .section-header .label { font-size: 13px; color: var(--teal-700); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-  .section-header h2 { font-size: 30px; font-weight: 700; color: var(--navy-900); margin-bottom: 10px; }
-  .section-header p { color: var(--gray-600); font-size: 15px; max-width: 500px; margin: 0 auto; }
+  /* ====== Section Common ====== */
+  .section { padding: 100px 0; }
+  .section-dark { background: var(--navy-950); color: var(--white); }
+  .section-gray { background: var(--gray-50); }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-header .tag {
+    display: inline-block; font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--teal-600); margin-bottom: 12px;
+  }
+  .section-dark .section-header .tag { color: var(--teal-400); }
+  .section-header h2 {
+    font-size: 36px; font-weight: 800; color: var(--navy-900);
+    letter-spacing: -0.5px; margin-bottom: 12px;
+  }
+  .section-dark .section-header h2 { color: var(--white); }
+  .section-header .desc {
+    font-size: 16px; color: var(--gray-500); max-width: 540px; margin: 0 auto;
+  }
+  .section-dark .section-header .desc { color: rgba(255,255,255,0.55); }
 
-  /* Tech areas - cards */
-  .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .tech-card-link { text-decoration: none; color: inherit; display: block; }
-  .tech-card {
-    background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
-    padding: 36px 28px; transition: box-shadow 0.25s, transform 0.25s;
-    cursor: pointer; position: relative;
+  /* ====== Tech Areas - Large Cards ====== */
+  .tech-list { display: flex; flex-direction: column; gap: 32px; }
+  .tech-item {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-radius: var(--radius-lg); overflow: hidden;
+    background: var(--white); border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+    text-decoration: none; color: inherit;
   }
-  .tech-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--navy-400); }
-  .tech-card::after {
-    content: "查看详情 →"; display: block; margin-top: 20px; font-size: 13px;
-    color: var(--navy-600); font-weight: 500;
+  .tech-item:hover {
+    box-shadow: var(--shadow-xl); transform: translateY(-3px);
+    border-color: transparent;
   }
-  .tech-card .icon {
-    width: 52px; height: 52px; border-radius: 12px; display: flex;
-    align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px;
+  .tech-item-image {
+    min-height: 320px; position: relative; overflow: hidden;
   }
-  .tech-card .icon.gasoline { background: var(--blue-100); color: var(--navy-600); }
-  .tech-card .icon.diesel { background: var(--amber-100); color: var(--amber-500); }
-  .tech-card .icon.marine { background: var(--coral-100); color: var(--coral-600); }
-  .tech-card h3 { font-size: 18px; font-weight: 600; color: var(--navy-900); margin-bottom: 8px; }
-  .tech-card .desc { font-size: 14px; color: var(--gray-600); line-height: 1.7; }
-  .tech-card .products { margin-top: 16px; }
-  .tech-card .product-tag {
-    display: inline-block; background: var(--gray-100); color: var(--gray-800);
-    padding: 4px 12px; border-radius: 4px; font-size: 12px; margin: 3px 4px 3px 0;
+  .tech-item-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .tech-item:hover .tech-item-image img { transform: scale(1.05); }
+  .tech-item-image .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(15,31,56,0.5), transparent 80%);
+  }
+  .tech-item-body {
+    padding: 48px 40px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .tech-item-body .icon-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 14px; border-radius: 16px; font-size: 13px; font-weight: 600;
+    width: fit-content; margin-bottom: 16px;
+  }
+  .icon-chip.gasoline { background: #e3edf9; color: var(--navy-600); }
+  .icon-chip.diesel { background: #fef3dd; color: var(--amber-600); }
+  .icon-chip.marine { background: #fbeae3; color: var(--coral-700); }
+  .tech-item-body h3 {
+    font-size: 26px; font-weight: 700; color: var(--navy-900);
+    margin-bottom: 10px; letter-spacing: -0.3px;
+  }
+  .tech-item-body .tech-desc {
+    font-size: 15px; color: var(--gray-500); line-height: 1.8; margin-bottom: 20px;
+  }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .tech-tag {
+    padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500;
+    background: var(--gray-50); color: var(--gray-700);
+    border: 1px solid var(--gray-200);
+  }
+  .tech-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--navy-600); font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: gap var(--transition);
+  }
+  .tech-link:hover { gap: 12px; }
+  .tech-link .arrow { font-size: 18px; transition: transform var(--transition); }
+  .tech-link:hover .arrow { transform: translateX(4px); }
+
+  /* ====== Principles ====== */
+  .principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .principle-card {
+    text-align: center; padding: 44px 28px;
+    background: var(--white); border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition);
+    position: relative;
+  }
+  .principle-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .principle-card .p-icon {
+    width: 72px; height: 72px; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 22px; font-size: 32px;
+  }
+  .p-icon.p1 { background: linear-gradient(135deg, #1a365d, #2c5282); color: var(--white); }
+  .p-icon.p2 { background: linear-gradient(135deg, #0f6e56, #1d9e75); color: var(--white); }
+  .p-icon.p3 { background: linear-gradient(135deg, #b87918, #d69e2e); color: var(--white); }
+  .principle-card h3 {
+    font-size: 19px; font-weight: 700; color: var(--navy-900); margin-bottom: 10px;
+  }
+  .principle-card p {
+    font-size: 14px; color: var(--gray-500); line-height: 1.8;
+  }
+  .principle-card .p-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    color: var(--gray-400); margin-bottom: 8px; text-transform: uppercase;
   }
 
-  /* Principles */
-  .principles { background: var(--gray-100); }
-  .principle-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: principle; }
-  .principle-item { counter-increment: principle; text-align: center; }
-  .principle-num {
-    width: 60px; height: 60px; border-radius: 50%; background: var(--navy-800);
-    color: var(--white); font-size: 24px; font-weight: 700; display: flex;
-    align-items: center; justify-content: center; margin: 0 auto 20px;
+  /* ====== About ====== */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: center; }
+  .about-visual { text-align: center; }
+  .about-avatar-wrapper {
+    width: 180px; height: 180px; border-radius: 24px;
+    margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-600));
+    font-size: 64px; box-shadow: 0 12px 40px rgba(15,31,56,0.2);
   }
-  .principle-item h3 { font-size: 17px; font-weight: 600; color: var(--navy-900); margin-bottom: 6px; }
-  .principle-item p { font-size: 14px; color: var(--gray-600); }
-
-  /* About */
-  .about-content { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: start; }
-  .about-avatar {
-    width: 120px; height: 120px; border-radius: 50%; background: var(--gray-200);
-    display: flex; align-items: center; justify-content: center; font-size: 42px;
-    color: var(--navy-400); margin-bottom: 16px;
+  .about-tag { font-size: 14px; color: var(--navy-600); font-weight: 600; }
+  .about-text h3 {
+    font-size: 24px; font-weight: 700; color: var(--navy-900);
+    margin-bottom: 16px; letter-spacing: -0.3px;
   }
-  .about-text h3 { font-size: 22px; font-weight: 600; color: var(--navy-900); margin-bottom: 12px; }
-  .about-text p { font-size: 15px; color: var(--gray-600); line-height: 1.9; margin-bottom: 12px; }
-  .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-  .highlight-item { display: flex; align-items: flex-start; gap: 10px; }
-  .highlight-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-500); margin-top: 7px; flex-shrink: 0; }
-  .highlight-item span { font-size: 14px; color: var(--gray-800); }
+  .about-text p {
+    font-size: 15px; color: var(--gray-600); line-height: 1.9; margin-bottom: 14px;
+  }
+  .about-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+  .about-metric {
+    text-align: center; padding: 20px 12px;
+    background: var(--gray-50); border-radius: var(--radius-sm);
+    border: 1px solid var(--gray-200);
+  }
+  .about-metric .m-num {
+    font-size: 26px; font-weight: 800; color: var(--navy-800);
+    display: block; letter-spacing: -1px;
+  }
+  .about-metric .m-label { font-size: 12px; color: var(--gray-500); margin-top: 4px; }
 
-  /* Footer */
-  footer { background: var(--navy-900); color: var(--gray-400); padding: 48px 0 32px; }
-  footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
-  footer .brand { font-size: 18px; font-weight: 600; color: var(--white); }
-  footer .contact-info { display: flex; gap: 24px; font-size: 14px; }
-  footer .contact-info a { color: var(--navy-400); text-decoration: none; }
-  footer .contact-info a:hover { color: var(--white); }
-  .footer-bottom { text-align: center; padding-top: 32px; font-size: 13px; color: var(--gray-600); border-top: 1px solid rgba(255,255,255,0.08); margin-top: 32px; }
+  /* ====== CTA Section ====== */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-950));
+    padding: 80px 0; text-align: center; color: var(--white);
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(29,158,117,0.15), transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section::after {
+    content: ''; position: absolute; bottom: -30%; left: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(90,143,196,0.1), transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section .container { position: relative; z-index: 1; }
+  .cta-section h2 {
+    font-size: 32px; font-weight: 800; margin-bottom: 12px;
+  }
+  .cta-section p { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+  .cta-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 560px; margin: 0 auto 32px; }
+  .cta-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius); padding: 24px; text-align: left;
+    backdrop-filter: blur(10px);
+  }
+  .cta-card .c-icon { font-size: 28px; margin-bottom: 8px; }
+  .cta-card .c-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .cta-card .c-value { font-size: 14px; color: rgba(255,255,255,0.6); }
 
-  @media (max-width: 768px) {
-    .tech-grid, .principle-list { grid-template-columns: 1fr; }
-    .about-content { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 30px; }
+  /* ====== Footer ====== */
+  footer {
+    background: var(--navy-950); color: var(--gray-400); padding: 56px 0 28px;
+  }
+  footer .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+    padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  footer .footer-brand { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  footer .footer-desc { font-size: 14px; line-height: 1.8; color: var(--gray-500); max-width: 320px; }
+  footer h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 16px; letter-spacing: 0.5px; }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 10px; }
+  footer ul a {
+    text-decoration: none; color: var(--gray-500); font-size: 14px;
+    transition: color var(--transition);
+  }
+  footer ul a:hover { color: var(--teal-400); }
+  .footer-bottom { text-align: center; padding-top: 24px; font-size: 13px; color: var(--gray-600); }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 900px) {
+    .tech-item { grid-template-columns: 1fr; }
+    .tech-item-image { min-height: 220px; }
+    .tech-item-image .overlay {
+      background: linear-gradient(to bottom, rgba(15,31,56,0.4), rgba(15,31,56,0.7));
+    }
+    .tech-item-body { padding: 32px 28px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .principle-grid { grid-template-columns: 1fr; }
+    footer .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero h1 { font-size: 36px; }
+    .hero-stats { gap: 28px; }
+    .hero-stat .num { font-size: 28px; }
+    .section-header h2 { font-size: 28px; }
     .nav-links { display: none; }
-    footer .container { flex-direction: column; text-align: center; }
+    .cta-cards { grid-template-columns: 1fr; }
+    .about-metrics { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .container { padding: 0 20px; }
+    .hero { min-height: auto; padding: 140px 0 80px; }
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 15px; }
+    .hero-stats { gap: 20px; }
+    .hero-stat .num { font-size: 24px; }
+    .section { padding: 60px 0; }
+    .section-header { margin-bottom: 40px; }
+    .about-metrics { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<nav>
+<!-- ====== Navigation ====== -->
+<nav id="navbar">
   <div class="container">
-    <div class="nav-brand">刘宇的化工技术站</div>
+    <a href="#" class="nav-brand" style="text-decoration:none;">
+      <span class="logo-dot"></span>刘宇的化工技术站
+    </a>
     <ul class="nav-links">
       <li><a href="#tech">技术领域</a></li>
       <li><a href="#principles">研发理念</a></li>
       <li><a href="#about">关于我</a></li>
-      <li><a href="#contact">联系</a></li>
+      <li><a href="#contact" class="nav-cta">联系我</a></li>
     </ul>
   </div>
 </nav>
 
+<!-- ====== Hero ====== -->
 <section class="hero">
-  <div class="container">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content container">
     <div class="hero-badge">石油化工 · 油品添加剂专家</div>
-    <h1>专注燃油添加剂<span>配方研发</span></h1>
-    <p class="subtitle">十余年深耕汽油、柴油、船用燃料油添加剂领域，以效果为导向，为油品调和提供可靠技术方案</p>
-    <div class="hero-tags">
-      <span>汽油添加剂</span>
-      <span>柴油添加剂</span>
-      <span>船用燃料油</span>
-      <span>配方研发</span>
-      <span>油品调和</span>
+    <h1>专注燃油添加剂<br><span class="accent">配方研发</span></h1>
+    <p class="subtitle">十余年深耕汽油、柴油、船用燃料油添加剂领域，以效果为导向，以数据说话，为油品调和提供可靠技术方案</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num accent-teal">13+</span>
+        <span class="label">年行业经验</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num accent-amber">3</span>
+        <span class="label">大产品领域</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num accent-coral">13</span>
+        <span class="label">款核心产品</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">规模化</span>
+        <span class="label">工业量产能力</span>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#tech" class="btn btn-primary">查看技术方案</a>
+      <a href="#contact" class="btn btn-outline">获取合作咨询</a>
     </div>
   </div>
+  <div class="scroll-hint"><span>&#8595;</span></div>
 </section>
 
+<!-- ====== Tech Areas ====== -->
 <section class="section" id="tech">
   <div class="container">
     <div class="section-header">
-      <div class="label">技术领域</div>
+      <div class="tag">技术领域</div>
       <h2>三大产品线，覆盖全品类燃油</h2>
-      <p>从汽油到船用重油，提供针对性的添加剂解决方案</p>
+      <p class="desc">从汽油到船用重质燃料油，提供针对性添加剂解决方案，每款配方均经实验室验证</p>
     </div>
-    <div class="tech-grid">
-      <a class="tech-card-link" href="gasoline.html">
-        <div class="tech-card">
-          <div class="icon gasoline">&#9971;</div>
+
+    <div class="tech-list">
+
+      <!-- 汽油 -->
+      <a href="gasoline.html" class="tech-item">
+        <div class="tech-item-image">
+          <img src="images/gasoline-card.png" alt="汽油添加剂" loading="lazy">
+          <div class="overlay"></div>
+        </div>
+        <div class="tech-item-body">
+          <div class="icon-chip gasoline">&#128738; 汽油产品线</div>
           <h3>汽油添加剂</h3>
-          <p class="desc">提升汽油品质，优化燃烧效率，减少排放</p>
-          <div class="products">
-            <span class="product-tag">增效剂</span>
-            <span class="product-tag">辛烷值提高剂</span>
-            <span class="product-tag">甲醇汽油助溶剂</span>
+          <p class="tech-desc">提升汽油品质，优化燃烧效率，减少排放。针对辛烷值、增效、甲醇汽油助溶三大方向提供专业配方。</p>
+          <div class="tech-tags">
+            <span class="tech-tag">增效剂</span>
+            <span class="tech-tag">辛烷值提高剂</span>
+            <span class="tech-tag">甲醇汽油助溶剂</span>
           </div>
+          <span class="tech-link">查看产品详情 <span class="arrow">&#8594;</span></span>
         </div>
       </a>
-      <a class="tech-card-link" href="diesel.html">
-        <div class="tech-card">
-          <div class="icon diesel">&#9981;</div>
+
+      <!-- 柴油 -->
+      <a href="diesel.html" class="tech-item">
+        <div class="tech-item-body">
+          <div class="icon-chip diesel">&#9981; 柴油产品线</div>
           <h3>柴油添加剂</h3>
-          <p class="desc">改善柴油低温流动性，提高十六烷值，保障柴油机稳定运行</p>
-          <div class="products">
-            <span class="product-tag">降凝剂</span>
-            <span class="product-tag">十六烷值改进剂</span>
-            <span class="product-tag">闪点改进剂</span>
-            <span class="product-tag">柴油替代品配方</span>
+          <p class="tech-desc">改善柴油低温流动性，提高十六烷值，保障柴油机稳定运行。覆盖降凝、十六烷值、闪点及替代品配方四大方向。</p>
+          <div class="tech-tags">
+            <span class="tech-tag">降凝剂</span>
+            <span class="tech-tag">十六烷值改进剂</span>
+            <span class="tech-tag">闪点改进剂</span>
+            <span class="tech-tag">替代品配方</span>
           </div>
+          <span class="tech-link">查看产品详情 <span class="arrow">&#8594;</span></span>
+        </div>
+        <div class="tech-item-image">
+          <img src="images/diesel-card.png" alt="柴油添加剂" loading="lazy">
+          <div class="overlay"></div>
         </div>
       </a>
-      <a class="tech-card-link" href="marine.html">
-        <div class="tech-card">
-          <div class="icon marine">&#9875;</div>
+
+      <!-- 船用燃料油 -->
+      <a href="marine.html" class="tech-item">
+        <div class="tech-item-image">
+          <img src="images/marine-card.png" alt="船用燃料油添加剂" loading="lazy">
+          <div class="overlay"></div>
+        </div>
+        <div class="tech-item-body">
+          <div class="icon-chip marine">&#9875; 船用燃料油产品线</div>
           <h3>船用180燃料油添加剂</h3>
-          <p class="desc">针对船用重质燃料油的综合性添加剂方案</p>
-          <div class="products">
-            <span class="product-tag">降酸剂</span>
-            <span class="product-tag">降金属剂</span>
-            <span class="product-tag">降灰分剂</span>
-            <span class="product-tag">增黏剂</span>
-            <span class="product-tag">降黏剂</span>
-            <span class="product-tag">分散剂</span>
+          <p class="tech-desc">针对船用重质燃料油的综合性添加剂方案。六大产品系列全方位解决降酸、降金属、降灰分、增黏、降黏、分散难题。</p>
+          <div class="tech-tags">
+            <span class="tech-tag">降酸剂</span>
+            <span class="tech-tag">降金属剂</span>
+            <span class="tech-tag">降灰分剂</span>
+            <span class="tech-tag">增黏剂</span>
+            <span class="tech-tag">降黏剂</span>
+            <span class="tech-tag">分散剂</span>
           </div>
+          <span class="tech-link">查看产品详情 <span class="arrow">&#8594;</span></span>
         </div>
       </a>
+
     </div>
   </div>
 </section>
 
-<section class="section principles" id="principles">
+<!-- ====== Principles ====== -->
+<section class="section section-gray" id="principles">
   <div class="container">
     <div class="section-header">
-      <div class="label">研发理念</div>
+      <div class="tag">研发理念</div>
       <h2>配方好不好，数据说了算</h2>
-      <p>实干派工程师的配方评估铁三角</p>
+      <p class="desc">实干派工程师的配方评估铁三角，逻辑清晰，标准严苛</p>
     </div>
-    <div class="principle-list">
-      <div class="principle-item">
-        <div class="principle-num">1</div>
+    <div class="principle-grid">
+      <div class="principle-card">
+        <div class="p-num">原则一</div>
+        <div class="p-icon p1">&#9889;</div>
         <h3>效果第一</h3>
-        <p>效果是硬指标，不过关一切免谈。每个配方必须经实验验证</p>
+        <p>效果是硬指标，不过关一切免谈。每个配方必须经过严格的实验室验证，数据不合格绝不推向产线。</p>
       </div>
-      <div class="principle-item">
-        <div class="principle-num">2</div>
+      <div class="principle-card">
+        <div class="p-num">原则二</div>
+        <div class="p-icon p2">&#9201;</div>
         <h3>添加量越小越好</h3>
-        <p>在保证效果的前提下追求低添加量，降低客户使用成本</p>
+        <p>在保证效果的前提下追求最低添加量。既降低客户的单位使用成本，也减少对油品本体的干扰。</p>
       </div>
-      <div class="principle-item">
-        <div class="principle-num">3</div>
+      <div class="principle-card">
+        <div class="p-num">原则三</div>
+        <div class="p-icon p3">&#128176;</div>
         <h3>成本控制</h3>
-        <p>前两条满足后再优化成本，不做牺牲效果的廉价方案</p>
+        <p>前两条满足后再优化成本。不做偷工减料的方案，不做牺牲效果的"便宜货"，追求最优性价比。</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ====== About ====== -->
 <section class="section" id="about">
   <div class="container">
     <div class="section-header">
-      <div class="label">关于我</div>
+      <div class="tag">关于我</div>
       <h2>扎根石油化工的技术工程师</h2>
     </div>
-    <div class="about-content">
-      <div style="text-align:center;">
-        <div class="about-avatar">&#9881;</div>
-        <p style="color:var(--gray-600);font-size:14px;">燃油添加剂研发工程师</p>
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-avatar-wrapper">&#9881;</div>
+        <p class="about-tag">燃油添加剂研发工程师</p>
       </div>
       <div class="about-text">
         <h3>专注油品添加剂配方研发</h3>
         <p>长期从事汽油、柴油、船用燃料油添加剂的配方研发与优化工作。熟悉各类添加剂原料的物化性质、配伍性及作用机理，具备从实验室小试到工业放大的一线经验。</p>
         <p>工作中坚持"效果第一、数据说话"的原则，每一个配方方案都经过严格的实验验证。不做纸上谈兵的配方，只交付经得起实测的产品。</p>
-        <div class="about-highlights">
-          <div class="highlight-item"><div class="highlight-dot"></div><span>汽油添加剂全系列</span></div>
-          <div class="highlight-item"><div class="highlight-dot"></div><span>柴油添加剂全系列</span></div>
-          <div class="highlight-item"><div class="highlight-dot"></div><span>船用180燃料油添加剂</span></div>
-          <div class="highlight-item"><div class="highlight-dot"></div><span>配方优化与成本控制</span></div>
-          <div class="highlight-item"><div class="highlight-dot"></div><span>实验室小试到工业放大</span></div>
-          <div class="highlight-item"><div class="highlight-dot"></div><span>油品调和全流程技术</span></div>
+        <div class="about-metrics">
+          <div class="about-metric">
+            <span class="m-num">13+</span>
+            <span class="m-label">年行业深耕</span>
+          </div>
+          <div class="about-metric">
+            <span class="m-num">3大</span>
+            <span class="m-label">产品领域</span>
+          </div>
+          <div class="about-metric">
+            <span class="m-num">13款</span>
+            <span class="m-label">核心产品</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<footer id="contact">
+<!-- ====== CTA ====== -->
+<section class="cta-section" id="contact">
   <div class="container">
-    <div class="brand">刘宇的化工技术站</div>
-    <div class="contact-info">
-      <span>电话：18655566667</span>
-      <a href="mailto:9185565@qq.com">9185565@qq.com</a>
+    <h2>需要添加剂技术方案？</h2>
+    <p>无论是配方研发、性能优化还是技术咨询，欢迎沟通</p>
+    <div class="cta-cards">
+      <div class="cta-card">
+        <div class="c-icon">&#128222;</div>
+        <div class="c-title">电话咨询</div>
+        <div class="c-value">18655566667</div>
+      </div>
+      <div class="cta-card">
+        <div class="c-icon">&#9993;</div>
+        <div class="c-title">邮件联系</div>
+        <div class="c-value">9185565@qq.com</div>
+      </div>
     </div>
+    <a href="mailto:9185565@qq.com" class="btn btn-primary">立即联系</a>
   </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <p>专注燃油添加剂配方研发，以技术创造价值</p>
+</section>
+
+<!-- ====== Footer ====== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">刘宇的化工技术站</div>
+        <p class="footer-desc">专注燃油添加剂配方研发。效果第一、数据说话，为油品调和提供可靠技术方案。</p>
+      </div>
+      <div>
+        <h4>产品领域</h4>
+        <ul>
+          <li><a href="gasoline.html">汽油添加剂</a></li>
+          <li><a href="diesel.html">柴油添加剂</a></li>
+          <li><a href="marine.html">船用燃料油添加剂</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系方式</h4>
+        <ul>
+          <li><a href="tel:18655566667">18655566667</a></li>
+          <li><a href="mailto:9185565@qq.com">9185565@qq.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>刘宇的化工技术站 &copy; 2025 &mdash; 专注燃油添加剂配方研发，以技术创造价值</p>
     </div>
   </div>
 </footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
