@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>柴油添加剂 - 刘宇的化工技术站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy-900: #0f1f38; --navy-800: #1a365d; --navy-600: #2c5282; --navy-400: #5a8fc4;
+    --teal-700: #0f6e56; --teal-500: #1d9e75;
+    --gray-100: #f7f8fa; --gray-200: #e8ecf1; --gray-400: #8896a6; --gray-600: #5a6575; --gray-800: #2d3748;
+    --white: #ffffff;
+    --amber-500: #d69e2e; --amber-100: #fef3dd; --amber-700: #854f0b;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08); --shadow-lg: 0 4px 16px rgba(0,0,0,0.1);
+    --radius: 12px;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: var(--gray-800); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-brand a { text-decoration: none; font-size: 18px; font-weight: 600; color: var(--navy-900); }
+  .nav-back a { text-decoration: none; color: var(--navy-600); font-size: 14px; }
+
+  .page-banner {
+    padding: 120px 0 56px;
+    background: linear-gradient(135deg, #fef3dd 0%, #fdedc8 50%, #fef3dd 100%);
+    text-align: center;
+  }
+  .page-banner .badge {
+    display: inline-block; background: var(--amber-500); color: var(--white);
+    padding: 5px 16px; border-radius: 20px; font-size: 13px; margin-bottom: 16px;
+  }
+  .page-banner h1 { font-size: 34px; font-weight: 700; color: var(--navy-900); margin-bottom: 8px; }
+  .page-banner p { font-size: 15px; color: var(--gray-600); max-width: 520px; margin: 0 auto; }
+
+  .section { padding: 64px 0; }
+  .product-card {
+    background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
+    padding: 40px; margin-bottom: 28px;
+  }
+  .product-card .product-header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 24px; }
+  .product-card .product-image {
+    width: 260px; height: 180px; border-radius: 8px; background: var(--gray-100);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--gray-400); font-size: 13px; flex-shrink: 0; border: 2px dashed var(--gray-200);
+    gap: 8px;
+  }
+  .product-card .product-image .img-icon { font-size: 36px; opacity: 0.5; }
+  .product-card .product-info { flex: 1; }
+  .product-card .product-info h3 { font-size: 22px; font-weight: 600; color: var(--navy-900); margin-bottom: 8px; }
+  .product-card .product-info .subtitle { font-size: 14px; color: var(--amber-700); margin-bottom: 16px; }
+  .product-card .product-info .desc { font-size: 14px; color: var(--gray-600); line-height: 1.9; margin-bottom: 16px; }
+  .product-card .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--gray-800);
+    background: var(--amber-100); padding: 10px 14px; border-radius: 6px;
+  }
+  .feature-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber-500); margin-top: 8px; flex-shrink: 0; }
+
+  footer { background: var(--navy-900); color: var(--gray-400); padding: 40px 0; text-align: center; }
+  footer p { font-size: 13px; }
+  footer a { color: var(--navy-400); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .product-card .product-header { flex-direction: column; }
+    .product-card .product-image { width: 100%; height: 160px; }
+    .product-card .features { grid-template-columns: 1fr; }
+    .page-banner h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand"><a href="index.html">刘宇的化工技术站</a></div>
+    <div class="nav-back"><a href="index.html">← 返回首页</a></div>
+  </div>
+</nav>
+
+<section class="page-banner">
+  <div class="container">
+    <div class="badge">柴油添加剂</div>
+    <h1>柴油添加剂系列产品</h1>
+    <p>改善柴油低温性能、提高十六烷值、保障柴油机高效稳定运行</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-image" style="overflow:hidden; border:none; background:none;">
+          <img src="images/diesel-ppd.png" alt="柴油降凝剂" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="product-info">
+          <h3>柴油降凝剂</h3>
+          <p class="subtitle">Diesel Pour Point Depressant (PPD)</p>
+          <p class="desc">高效柴油低温流动性改进剂，通过改变蜡晶的形态和生长方式，显著降低柴油的凝点和冷滤点。适用于各类柴油的冬季调和，保障低温环境下的正常使用。</p>
+          <div class="features">
+            <div class="feature-item"><div class="feature-dot"></div><span>显著降低柴油凝点（降幅可达20-30℃）</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>改善冷滤点，保障低温过滤性能</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>与各类柴油基础组分良好配伍</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>低添加量（通常200-1000ppm）即有效</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-image" style="overflow:hidden; border:none; background:none;">
+          <img src="images/cetane-improver.png" alt="十六烷值改进剂" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="product-info">
+          <h3>十六烷值改进剂</h3>
+          <p class="subtitle">Cetane Number Improver</p>
+          <p class="desc">高效十六烷值提升添加剂，通过促进柴油自燃、缩短滞燃期，改善柴油的着火性能。适用于低十六烷值柴油的调质，提高柴油机的启动性能和运行平稳性。</p>
+          <div class="features">
+            <div class="feature-item"><div class="feature-dot"></div><span>提高柴油十六烷值，改善着火性能</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>缩短滞燃期，减少爆震和噪音</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>改善冷启动性能</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>降低尾气烟度和颗粒物排放</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-image" style="overflow:hidden; border:none; background:none;">
+          <img src="images/diesel-flashpoint.png" alt="闪点改进剂" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="product-info">
+          <h3>闪点改进剂</h3>
+          <p class="subtitle">Flash Point Improver</p>
+          <p class="desc">专为提高柴油闪点设计的添加剂，通过调整柴油的蒸气压特性，提高柴油的储存和运输安全性。适用于闪点偏低的柴油调和与品质调整。</p>
+          <div class="features">
+            <div class="feature-item"><div class="feature-dot"></div><span>有效提高柴油闭口闪点</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>提升储存和运输安全性</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>满足国标及行业闪点规格要求</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>不影响柴油其他性能指标</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-image" style="overflow:hidden; border:none; background:none;">
+          <img src="images/diesel-alternative.png" alt="柴油替代品配方" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="product-info">
+          <h3>柴油替代品配方</h3>
+          <p class="subtitle">Diesel Alternative Formulation</p>
+          <p class="desc">面向非道路和工业应用的柴油替代燃料配方方案，通过合理的组分复配，在保证燃烧性能的前提下降低燃料成本，为工业用户提供经济可行的燃料选择。</p>
+          <div class="features">
+            <div class="feature-item"><div class="feature-dot"></div><span>替代比例灵活可调</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>燃烧性能接近常规柴油</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>显著降低燃料使用成本</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>适用于工业锅炉和非道路机械</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><a href="index.html">← 返回首页</a></p>
+    <p style="margin-top:8px;">专注燃油添加剂配方研发，以技术创造价值</p>
+  </div>
+</footer>
+
+</body>
+</html>

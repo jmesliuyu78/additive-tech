@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汽油添加剂 - 刘宇的化工技术站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy-900: #0f1f38; --navy-800: #1a365d; --navy-600: #2c5282; --navy-400: #5a8fc4;
+    --teal-700: #0f6e56; --teal-500: #1d9e75;
+    --gray-100: #f7f8fa; --gray-200: #e8ecf1; --gray-400: #8896a6; --gray-600: #5a6575; --gray-800: #2d3748;
+    --white: #ffffff;
+    --blue-100: #e3edf9; --blue-600: #2c5282;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08); --shadow-lg: 0 4px 16px rgba(0,0,0,0.1);
+    --radius: 12px;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: var(--gray-800); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .nav-brand a { text-decoration: none; font-size: 18px; font-weight: 600; color: var(--navy-900); }
+  .nav-back a {
+    text-decoration: none; color: var(--navy-600); font-size: 14px;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .nav-back a:hover { color: var(--navy-900); }
+
+  .page-banner {
+    padding: 120px 0 56px;
+    background: linear-gradient(135deg, #e3edf9 0%, #d4e4f5 50%, #e3edf9 100%);
+    text-align: center;
+  }
+  .page-banner .badge {
+    display: inline-block; background: var(--navy-600); color: var(--white);
+    padding: 5px 16px; border-radius: 20px; font-size: 13px; margin-bottom: 16px;
+  }
+  .page-banner h1 { font-size: 34px; font-weight: 700; color: var(--navy-900); margin-bottom: 8px; }
+  .page-banner p { font-size: 15px; color: var(--gray-600); max-width: 520px; margin: 0 auto; }
+
+  .section { padding: 64px 0; }
+  .product-card {
+    background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
+    padding: 40px; margin-bottom: 28px;
+  }
+  .product-card .product-header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 24px; }
+  .product-card .product-image {
+    width: 260px; height: 180px; border-radius: 8px; background: var(--gray-100);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--gray-400); font-size: 13px; flex-shrink: 0; border: 2px dashed var(--gray-200);
+    gap: 8px;
+  }
+  .product-card .product-image .img-icon { font-size: 36px; opacity: 0.5; }
+  .product-card .product-info { flex: 1; }
+  .product-card .product-info h3 { font-size: 22px; font-weight: 600; color: var(--navy-900); margin-bottom: 8px; }
+  .product-card .product-info .subtitle { font-size: 14px; color: var(--navy-600); margin-bottom: 16px; }
+  .product-card .product-info .desc { font-size: 14px; color: var(--gray-600); line-height: 1.9; margin-bottom: 16px; }
+  .product-card .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--gray-800);
+    background: var(--gray-100); padding: 10px 14px; border-radius: 6px;
+  }
+  .feature-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--navy-600); margin-top: 8px; flex-shrink: 0; }
+
+  footer { background: var(--navy-900); color: var(--gray-400); padding: 40px 0; text-align: center; }
+  footer p { font-size: 13px; }
+  footer a { color: var(--navy-400); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+
+  @media (max-width: 768px) {
+    .product-card .product-header { flex-direction: column; }
+    .product-card .product-image { width: 100%; height: 160px; }
+    .product-card .features { grid-template-columns: 1fr; }
+    .page-banner h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand"><a href="index.html">刘宇的化工技术站</a></div>
+    <div class="nav-back"><a href="index.html">← 返回首页</a></div>
+  </div>
+</nav>
+
+<section class="page-banner">
+  <div class="container">
+    <div class="badge">汽油添加剂</div>
+    <h1>汽油添加剂系列产品</h1>
+    <p>提升汽油品质、优化燃烧效率、降低排放，为汽油调和提供全面的添加剂解决方案</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-image" style="overflow:hidden; border:none; background:none;">
+          <img src="images/gasoline-enhancer.png" alt="汽油增效剂" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="product-info">
+          <h3>汽油增效剂</h3>
+          <p class="subtitle">Gasoline Performance Enhancer</p>
+          <p class="desc">多功能汽油增效添加剂，通过清净分散、抗氧防锈等多重作用，全面改善汽油品质。适用于车用汽油的调和技术，有效提升汽油的综合使用性能。</p>
+          <div class="features">
+            <div class="feature-item"><div class="feature-dot"></div><span>清除发动机积碳，保持燃油系统清洁</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>改善燃烧效率，提升动力输出</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>抑制胶质生成，延长储存稳定性</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>降低尾气中有害物质排放</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-image" style="overflow:hidden; border:none; background:none;">
+          <img src="images/octane-booster.png" alt="辛烷值提高剂" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="product-info">
+          <h3>辛烷值提高剂</h3>
+          <p class="subtitle">Octane Booster</p>
+          <p class="desc">高效辛烷值提升添加剂，通过改善汽油的抗爆震性能，使汽油能够在更高压缩比下稳定燃烧。适用于低标号基础油调和至高标号成品汽油。</p>
+          <div class="features">
+            <div class="feature-item"><div class="feature-dot"></div><span>显著提升汽油辛烷值（RON/MON）</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>抑制发动机爆震，保护引擎</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>与传统汽油组分良好相容</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>低添加量即可达到调标要求</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-header">
+        <div class="product-image" style="overflow:hidden; border:none; background:none;">
+          <img src="images/methanol-cosolvent.png" alt="甲醇汽油助溶剂" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+        </div>
+        <div class="product-info">
+          <h3>甲醇汽油助溶剂</h3>
+          <p class="subtitle">Methanol-Gasoline Cosolvent</p>
+          <p class="desc">专为甲醇汽油调和设计的高效助溶剂，解决甲醇与汽油的相分离问题，确保甲醇汽油在储存和使用过程中的稳定性和均匀性。</p>
+          <div class="features">
+            <div class="feature-item"><div class="feature-dot"></div><span>增强甲醇与汽油的互溶性</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>防止低温相分离，保障冬季使用</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>改善甲醇汽油的燃烧特性</span></div>
+            <div class="feature-item"><div class="feature-dot"></div><span>降低甲醇汽油的腐蚀性</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><a href="index.html">← 返回首页</a></p>
+    <p style="margin-top:8px;">专注燃油添加剂配方研发，以技术创造价值</p>
+  </div>
+</footer>
+
+</body>
+</html>
