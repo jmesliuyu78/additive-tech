@@ -59,9 +59,16 @@
     border: 1px solid #b8e6d3; border-radius: var(--radius);
     padding: 40px; margin-bottom: 36px;
   }
-  .intro-card h2 { font-size: 22px; font-weight: 700; color: var(--navy-900); margin-bottom: 16px; }
-  .intro-desc { font-size: 15px; color: var(--gray-800); line-height: 1.9; margin-bottom: 12px; text-indent: 2em; }
-  .intro-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .intro-card .intro-header { display: flex; gap: 36px; align-items: flex-start; }
+  .intro-card .intro-img {
+    width: 340px; height: 320px; border-radius: 10px; overflow: hidden;
+    flex-shrink: 0; box-shadow: 0 4px 16px rgba(15,110,86,0.12);
+  }
+  .intro-card .intro-img img { width: 100%; height: 100%; object-fit: cover; }
+  .intro-card .intro-content { flex: 1; min-width: 0; }
+  .intro-card h2 { font-size: 22px; font-weight: 700; color: var(--navy-900); margin-bottom: 14px; }
+  .intro-desc { font-size: 14.5px; color: var(--gray-800); line-height: 1.85; margin-bottom: 10px; text-indent: 2em; }
+  .intro-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; justify-content: center; }
   .intro-tags span {
     background: var(--white); color: var(--teal-600); font-size: 13px;
     padding: 6px 16px; border-radius: 20px; border: 1px solid var(--teal-500);
@@ -83,7 +90,7 @@
   .product-card .product-info h3 { font-size: 22px; font-weight: 600; color: var(--navy-900); margin-bottom: 8px; }
   .product-card .product-info .subtitle { font-size: 14px; color: var(--teal-600); margin-bottom: 16px; }
   .product-card .product-info .desc { font-size: 14px; color: var(--gray-600); line-height: 1.9; margin-bottom: 16px; }
-  .product-card .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .product-card .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
   .feature-item {
     display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--gray-800);
     background: var(--teal-100); padding: 10px 14px; border-radius: 6px;
@@ -99,6 +106,8 @@
     .product-card .product-header { flex-direction: column; }
     .product-card .product-image { width: 100%; height: 160px; }
     .product-card .features { grid-template-columns: 1fr; }
+    .intro-card .intro-header { flex-direction: column; }
+    .intro-card .intro-img { width: 100%; height: 260px; }
     .page-banner h1 { font-size: 26px; }
   }
 </style>
@@ -125,9 +134,16 @@
 
     <!-- 醇醚燃料配方介绍 -->
     <div class="intro-card">
-      <h2>醇醚燃料配方定制服务</h2>
-      <p class="intro-desc">醇醚燃料是一大类以甲醇、乙醇、二甲醚及其他低碳含氧化合物为基础组分调合而成的清洁替代燃料，涵盖甲醇汽油（M5-M100）、乙醇汽油（E10-E85）、醇醚复合燃料及多元混合燃料等多种类型。不同基础原料的理化性质差异显著——甲醇的高汽化潜热与低热值、乙醇的吸湿性与材料相容性问题、二甲醚的高蒸气压与润滑性不足——各应用场景对配方的要求千差万别。</p>
-      <p class="intro-desc">我们在醇醚燃料配方领域拥有20余年的技术积累，熟悉从基础组分筛选、互溶体系设计、添加剂复配到台架验证的全链条开发流程。无论是面向出租车车队的M100甲醇燃料方案，还是针对北方严寒地区的E10低温乙醇汽油配方，或是特种工况（高原、船用、工业锅炉）的醇醚燃料需求，我们均可提供经过充分验证的成熟配方与一体化添加剂包。</p>
+      <div class="intro-header">
+        <div class="intro-img">
+          <img src="images/alcohol-formulation.png" alt="醇醚燃料配方研发">
+        </div>
+        <div class="intro-content">
+          <h2>醇醚燃料配方定制服务</h2>
+          <p class="intro-desc">醇醚燃料是一大类以甲醇、乙醇、二甲醚及其他低碳含氧化合物为基础组分调合而成的清洁替代燃料，涵盖甲醇汽油（M5-M100）、乙醇汽油（E10-E85）、醇醚复合燃料及多元混合燃料等多种类型。不同基础原料的理化性质差异显著——甲醇的高汽化潜热与低热值、乙醇的吸湿性与材料相容性问题、二甲醚的高蒸气压与润滑性不足——各应用场景对配方的要求千差万别。</p>
+          <p class="intro-desc">我们在醇醚燃料配方领域拥有20余年的技术积累，熟悉从基础组分筛选、互溶体系设计、添加剂复配到台架验证的全链条开发流程。无论是面向出租车车队的M100甲醇燃料方案，还是针对北方严寒地区的E10低温乙醇汽油配方，或是特种工况（高原、船用、工业锅炉）的醇醚燃料需求，我们均可提供经过充分验证的成熟配方与一体化添加剂包。</p>
+        </div>
+      </div>
       <div class="intro-tags">
         <span>M5-M100甲醇汽油全系列配方</span>
         <span>E10-E85乙醇汽油配方</span>
@@ -148,13 +164,13 @@
           <h3>醇醚燃料助溶剂</h3>
           <p class="subtitle">Alcohol-Ether Fuel Cosolvent / Phase Stabilizer</p>
           <p class="desc">专为甲醇/乙醇-汽油调和体系设计的高效复合助溶剂。采用多元醇醚类协同溶剂体系，通过形成分子间氢键网络与偶极-偶极相互作用，克服醇类（质子性极性溶剂）与烃类（非极性）的天然不相容性。在常温至低温宽区间内维持均一单相，防止分层导致的发动机运行故障。</p>
-          <div class="features">
-            <div class="feature-item"><div class="feature-dot"></div><span>实现醇-烃体系的分子级均匀混合，防止相分离</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>保障-25℃低温条件下燃料的均相稳定性</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>适用于M5-M85宽比例甲醇汽油及E10-E85乙醇汽油</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>低添加量（0.3%-1.5%）即可实现稳定互溶</span></div>
-          </div>
         </div>
+      </div>
+      <div class="features">
+        <div class="feature-item"><div class="feature-dot"></div><span>实现醇-烃体系的分子级均匀混合，防止相分离</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>保障-25℃低温条件下燃料的均相稳定性</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>适用于M5-M85宽比例甲醇汽油及E10-E85乙醇汽油</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>低添加量（0.3%-1.5%）即可实现稳定互溶</span></div>
       </div>
     </div>
 
@@ -168,13 +184,13 @@
           <h3>醇醚燃料腐蚀抑制剂</h3>
           <p class="subtitle">Corrosion Inhibitor for Alcohol Fuels</p>
           <p class="desc">针对醇类燃料高电导率及酸性氧化产物导致的金属腐蚀问题设计的专用缓蚀添加剂。采用咪唑啉衍生物、有机羧酸盐及中性缓蚀剂的复合配方，在金属表面形成致密的化学吸附保护膜，同时中和醇氧化生成的微量甲酸/乙酸，阻断电化学腐蚀回路。对有色金属（铜、铝、锌合金）及黑色金属均有优异防护效果。</p>
-          <div class="features">
-            <div class="feature-item"><div class="feature-dot"></div><span>抑制醇类燃料对铜合金、铝合金及锌镀层的电化学腐蚀</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>在金属表面形成单分子层化学吸附保护膜</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>中和醇氧化生成的酸性腐蚀物质</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>满足ASTM D130铜片腐蚀试验1a级标准</span></div>
-          </div>
         </div>
+      </div>
+      <div class="features">
+        <div class="feature-item"><div class="feature-dot"></div><span>抑制醇类燃料对铜合金、铝合金及锌镀层的电化学腐蚀</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>在金属表面形成单分子层化学吸附保护膜</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>中和醇氧化生成的酸性腐蚀物质</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>满足ASTM D130铜片腐蚀试验1a级标准</span></div>
       </div>
     </div>
 
@@ -188,13 +204,13 @@
           <h3>醇醚燃料燃烧促进剂</h3>
           <p class="subtitle">Combustion Promoter for Alcohol-Ether Fuels</p>
           <p class="desc">改善醇醚燃料着火特性和燃烧完备度的多功能添加剂。甲醇/乙醇燃料因汽化潜热高、十六烷值极低，存在冷启动困难和低速燃烧不稳定等问题。本产品通过自由基引发催化、火焰传播加速及燃油雾化改善等多重机理，降低醇类燃料的着火延迟期，提高火焰传播速度，改善发动机冷启动性能与低负荷工况下的燃烧稳定性。</p>
-          <div class="features">
-            <div class="feature-item"><div class="feature-dot"></div><span>缩短醇类燃料着火延迟期，改善冷启动性能</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>提高火焰传播速度，减少循环变动（COV）</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>降低未燃醇及醛类排放（甲醇、甲醛/乙醛）</span></div>
-            <div class="feature-item"><div class="feature-dot"></div><span>提升低负荷工况下的燃烧稳定性与热效率</span></div>
-          </div>
         </div>
+      </div>
+      <div class="features">
+        <div class="feature-item"><div class="feature-dot"></div><span>缩短醇类燃料着火延迟期，改善冷启动性能</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>提高火焰传播速度，减少循环变动（COV）</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>降低未燃醇及醛类排放（甲醇、甲醛/乙醛）</span></div>
+        <div class="feature-item"><div class="feature-dot"></div><span>提升低负荷工况下的燃烧稳定性与热效率</span></div>
       </div>
     </div>
 
