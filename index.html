@@ -38,11 +38,12 @@
     --navy-600: #2c5282;
     --navy-400: #5a8fc4;
     --navy-200: #b3d4ef;
-    --teal-700: #0f6e56;
-    --teal-600: #148f6d;
-    --teal-500: #1d9e75;
-    --teal-400: #2db88a;
-    --teal-100: #d4f0e6;
+    --green-800: #1a3d22;
+    --green-700: #23482c;
+    --green-600: #2E5E3A;
+    --green-500: #3d7a4e;
+    --green-100: #d4e8d9;
+    --brand-blue: #1B4F8C;
     --amber-600: #b87918;
     --amber-500: #d69e2e;
     --amber-400: #e6b74a;
@@ -102,7 +103,7 @@
   }
   .nav-brand .logo-dot {
     width: 10px; height: 10px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal-500), var(--navy-600));
+    background: linear-gradient(135deg, var(--green-600), var(--navy-600));
   }
   .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
   .nav-links a {
@@ -111,7 +112,7 @@
   }
   .nav-links a::after {
     content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
-    background: var(--teal-500); transform: scaleX(0); transition: transform var(--transition);
+    background: var(--green-600); transform: scaleX(0); transition: transform var(--transition);
     border-radius: 2px;
   }
   .nav-links a:hover { color: var(--navy-700); }
@@ -124,6 +125,21 @@
   .nav-cta:hover { background: var(--navy-700) !important; }
   .nav-cta::after { display: none !important; }
 
+  /* Hamburger */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 8px;
+    z-index: 1001;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--navy-800); border-radius: 2px;
+    transition: all var(--transition);
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   /* ====== Hero ====== */
   .hero {
     position: relative;
@@ -135,7 +151,7 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: url('images/hero-bg.png') center/cover no-repeat;
+    background: url('images/hero-bg.png') center/cover no-repeat, linear-gradient(135deg, #0f1f38, #1a365d 60%, #1B4F8C);
     filter: brightness(0.35) saturate(0.8);
   }
   .hero-overlay {
@@ -147,8 +163,8 @@
     display: inline-block;
     padding: 6px 20px; border-radius: 24px;
     font-size: 14px; font-weight: 600; letter-spacing: 1.5px;
-    background: rgba(29,158,117,0.2); border: 1px solid rgba(29,158,117,0.4);
-    color: var(--teal-400); margin-bottom: 28px;
+    background: rgba(46,94,58,0.2); border: 1px solid rgba(46,94,58,0.4);
+    color: var(--green-500); margin-bottom: 28px;
     backdrop-filter: blur(10px);
   }
   .hero h1 {
@@ -156,7 +172,7 @@
     line-height: 1.2; margin-bottom: 20px;
     text-shadow: 0 2px 20px rgba(0,0,0,0.3);
   }
-  .hero h1 .accent { color: var(--teal-400); }
+  .hero h1 .accent { color: var(--green-500); }
   .hero .subtitle {
     font-size: 18px; color: rgba(255,255,255,0.75);
     max-width: 560px; margin: 0 auto 40px;
@@ -175,7 +191,7 @@
     font-size: 13px; color: rgba(255,255,255,0.6);
     margin-top: 4px; letter-spacing: 0.5px;
   }
-  .hero-stat .num.accent-teal { color: var(--teal-400); }
+  .hero-stat .num.accent-teal { color: var(--green-500); }
   .hero-stat .num.accent-amber { color: var(--amber-400); }
   .hero-stat .num.accent-coral { color: var(--coral-500); }
   .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -185,10 +201,10 @@
     border: none;
   }
   .btn-primary {
-    background: var(--teal-600); color: var(--white);
-    box-shadow: 0 4px 16px rgba(29,158,117,0.35);
+    background: var(--green-700); color: var(--white);
+    box-shadow: 0 4px 16px rgba(46,94,58,0.35);
   }
-  .btn-primary:hover { background: var(--teal-500); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,158,117,0.45); }
+  .btn-primary:hover { background: var(--green-600); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,94,58,0.45); }
   .btn-outline {
     background: transparent; color: var(--white);
     border: 2px solid rgba(255,255,255,0.3);
@@ -214,9 +230,9 @@
   .section-header .tag {
     display: inline-block; font-size: 13px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
-    color: var(--teal-600); margin-bottom: 12px;
+    color: var(--green-700); margin-bottom: 12px;
   }
-  .section-dark .section-header .tag { color: var(--teal-400); }
+  .section-dark .section-header .tag { color: var(--green-500); }
   .section-header h2 {
     font-size: 36px; font-weight: 800; color: var(--navy-900);
     letter-spacing: -0.5px; margin-bottom: 12px;
@@ -301,7 +317,7 @@
     margin: 0 auto 22px; font-size: 32px;
   }
   .p-icon.p1 { background: linear-gradient(135deg, #1a365d, #2c5282); color: var(--white); }
-  .p-icon.p2 { background: linear-gradient(135deg, #0f6e56, #1d9e75); color: var(--white); }
+  .p-icon.p2 { background: linear-gradient(135deg, var(--green-800), var(--green-600)); color: var(--white); }
   .p-icon.p3 { background: linear-gradient(135deg, #b87918, #d69e2e); color: var(--white); }
   .principle-card h3 {
     font-size: 19px; font-weight: 700; color: var(--navy-900); margin-bottom: 10px;
@@ -352,7 +368,7 @@
   .cta-section::before {
     content: ''; position: absolute; top: -50%; right: -20%;
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(29,158,117,0.15), transparent 70%);
+    background: radial-gradient(circle, rgba(46,94,58,0.15), transparent 70%);
     border-radius: 50%;
   }
   .cta-section::after {
@@ -393,7 +409,7 @@
     text-decoration: none; color: var(--gray-500); font-size: 14px;
     transition: color var(--transition);
   }
-  footer ul a:hover { color: var(--teal-400); }
+  footer ul a:hover { color: var(--green-500); }
   .footer-bottom { text-align: center; padding-top: 24px; font-size: 13px; color: var(--gray-600); }
 
   /* ====== Responsive ====== */
@@ -412,6 +428,15 @@
     .hero-stat .num { font-size: 28px; }
     .section-header h2 { font-size: 28px; }
     .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column; position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
+      padding: 16px 32px 24px; gap: 12px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .nav-links.open .nav-cta { width: fit-content; }
+    .hamburger { display: flex; }
     .cta-cards { grid-template-columns: 1fr; }
     .about-metrics { grid-template-columns: repeat(3, 1fr); }
   }
@@ -442,6 +467,9 @@
       <li><a href="#about">关于我</a></li>
       <li><a href="#contact" class="nav-cta">联系我</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -556,7 +584,7 @@
       <!-- 醇醚燃料 -->
       <a href="alcohol-ether.html" class="tech-item">
         <div class="tech-item-body">
-          <div class="icon-chip" style="background:#d4f0e6;color:#0f6e56;">&#127807; 醇醚燃料产品线</div>
+          <div class="icon-chip" style="background:var(--green-100);color:var(--green-800);">&#127807; 醇醚燃料产品线</div>
           <h3>醇醚燃料及其添加剂产品</h3>
           <p class="tech-desc">面向甲醇汽油、乙醇汽油等清洁替代燃料的专用添加剂技术及完整配方方案。解决醇类燃料的相分离、腐蚀抑制、燃烧优化等核心难题，并提供调和技术支持。</p>
           <div class="tech-tags">
@@ -616,26 +644,37 @@
     </div>
     <div class="about-grid">
       <div class="about-visual">
-        <div class="about-avatar-wrapper">&#9881;</div>
+        <div class="about-avatar-wrapper">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36" cy="20" r="12" fill="white" opacity="0.9"/>
+            <ellipse cx="36" cy="52" rx="22" ry="16" fill="white" opacity="0.85"/>
+            <circle cx="28" cy="18" r="2.5" fill="#1B4F8C"/>
+            <circle cx="44" cy="18" r="2.5" fill="#1B4F8C"/>
+            <path d="M28 26 Q36 32 44 26" stroke="#1B4F8C" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
         <p class="about-tag">醇醚燃料与油品添加剂专家</p>
       </div>
       <div class="about-text">
         <h3>从化工世家走出的配方研发者</h3>
+        <h4 style="font-size:16px;color:var(--brand-blue);margin-bottom:8px;font-weight:600;">化工世家传承</h4>
         <p>出生于化工世家，父亲刘爱国先生为国家级化工专家、国务院政府特殊津贴获得者。自幼耳濡目染，继承了父辈数十年积累的油品添加剂配方工艺与实践经验，并在醇醚燃料领域开辟了独立的技术方向。</p>
+        <h4 style="font-size:16px;color:var(--brand-blue);margin-bottom:8px;font-weight:600;">跨学科教育背景</h4>
         <p>天津大学化工本科、北京大学光华管理学院硕士、美国民族大学双博士（生物工程食品专业及化工专业），跨学科的教育背景使其在配方研发中能够跳出传统化工思维框架，从分子作用机理和协同效应层面进行靶向设计，而非经验主义的试错调整。</p>
+        <h4 style="font-size:16px;color:var(--brand-blue);margin-bottom:8px;font-weight:600;">当前工作方向</h4>
         <p>现就职于中国北斗航天能源集团，专注醇醚燃料与油品添加剂两大核心方向。坚持"效果第一、添加量第二、成本第三"的配方评估准则，从国Ⅲ到国Ⅵ标准演进中持续迭代产品体系，累计完成汽油增效剂、柴油降凝剂、十六烷值改进剂、船用燃料油添加剂等数十个配方的系统性优化。</p>
         <div class="about-metrics">
           <div class="about-metric">
-            <span class="m-num">20+</span>
-            <span class="m-label">行业深耕</span>
+            <span class="m-num">30+</span>
+            <span class="m-label">迭代配方</span>
           </div>
           <div class="about-metric">
-            <span class="m-num">4大</span>
-            <span class="m-label">产品领域</span>
+            <span class="m-num">200+</span>
+            <span class="m-label">服务客户</span>
           </div>
           <div class="about-metric">
-            <span class="m-num">18款</span>
-            <span class="m-label">核心产品</span>
+            <span class="m-num">5项</span>
+            <span class="m-label">发明专利</span>
           </div>
         </div>
       </div>
@@ -690,7 +729,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>刘宇的化工技术站 &copy; 2025 &mdash; 专注燃油添加剂配方研发，以技术创造价值</p>
+      <p>刘宇的化工技术站 &copy; 2026 &mdash; 专注燃油添加剂配方研发，以技术创造价值</p>
     </div>
   </div>
 </footer>
@@ -704,6 +743,22 @@
     } else {
       navbar.classList.remove('scrolled');
     }
+  });
+
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  // Close menu on nav link click (mobile)
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
   });
 
   // Smooth scroll for anchor links
